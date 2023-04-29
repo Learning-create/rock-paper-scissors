@@ -61,9 +61,6 @@ function getComputerChoice() {
     }
 }
 
-
-//playRound(playerSelection, computerChoice);
-
 //create function game() loop round 5 times  the winner console.log the results and winner
 
 function game() {
