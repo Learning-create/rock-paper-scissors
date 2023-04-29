@@ -74,8 +74,15 @@ function game() {
     
     for (round = 1; round <= 5; round++) {
 
+        if (round === 1) {
+            console.log("This is the first round ");
+        } else if (round < 5) {
+            console.log("Now round nº " + round);
+        } else {
+            console.log("Last round");
+        }
+
         playRound(playerSelection, computerChoice);
-        console.log(round);
         console.log("computer: " + computerScore + " You: " + playerScore)
     } 
 
