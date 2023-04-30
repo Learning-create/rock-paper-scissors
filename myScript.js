@@ -56,8 +56,7 @@ function getComputerChoice() {
         console.log("You win! Scissors beats Paper");
         return playerScore++;
     } else {
-        console.log("Guess the computer won this one");
-        return computerScore++;
+        console.log("Guess that's a tie...");;
     }
 }
 
