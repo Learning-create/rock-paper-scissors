@@ -1,19 +1,18 @@
 let computerChoice;
-let playerSelection;
 let playerScore;
 let computerScore;
 
 const buttons = document.querySelectorAll("button");
 
-function playRound (playerSelection, computerChoice) {
+let playerSelection = buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        console.log(button.id);
+        return button.id;
+    })
+});
+ 
+ function playRound (playerSelection, computerChoice) {
 
-
-    let getPlayerSelection = buttons.forEach((button) => {
-        button.addEventListener("click", () => {
-            console.log(button.id);
-            return button.id;
-        })
-    });
     playerSelection = getPlayerSelection;
 
     console.log("You choose " + playerSelection);
@@ -61,17 +60,19 @@ function getComputerChoice() {
     }
 }
 
-playRound();
+if (playerSelection !== undefined) {
+    playRound();
+};
 
 //create function game() loop round 5 times  the winner console.log the results and winner
-
+/*
 function game() {
 
     //variables for scores
     computerScore = 0;
     playerScore = 0;
     
-    /*
+   
     for (round = 1; round <= 5; round++) {
 
         if (round === 1) {
@@ -85,7 +86,7 @@ function game() {
         playRound(playerSelection, computerChoice);
         console.log("computer: " + computerScore + " You: " + playerScore)
     } 
-    */
+    
 
     if (computerScore < playerScore) {
         console.log("Congratulations, You beat the game");
@@ -95,5 +96,5 @@ function game() {
         console.log("Wait... A tie?");
     }
 }
-
+*/
 //game();
