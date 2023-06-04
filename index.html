@@ -11,13 +11,19 @@
 <body>
     <div class="foreground">
         <div id="story">Wanna play rock paper scissors?<br>Choose one</div>
-        <div id="container">
-            <button id="rock">Rock</button>
-            <button id="paper">Paper</button>
-            <button id="scissors">Scissors</button>
+
+        <div id="score">
+            Round: <span id="round"></span><br><br>
+            You: <span id="playerScore"></span><br>
+            Computer: <span id="computerScore"></span>
         </div>
         <div id="results"></div>
-        
+
+        <div id="container">
+            <button class="option" id="rock" onclick="countClick()">Rock</button>
+            <button class="option" id="paper" onclick="countClick()">Paper</button>
+            <button class="option" id="scissors" onclick="countClick()">Scissors</button>
+        </div>
     </div>
     <footer class="footer">Hey, check my <a href="https://github.com/Learning-create">GitHub</a></footer>
 </body>

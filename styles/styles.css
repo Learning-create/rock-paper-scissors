@@ -50,5 +50,10 @@ button {
 #results {
     border: solid black;
     text-align: center;
-    color: white
+    color: white;
+    font-size: 25px;
+}
+
+#score {
+    text-align: center;
 }

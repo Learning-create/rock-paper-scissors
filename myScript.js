@@ -1,8 +1,15 @@
 const choice = document.querySelectorAll("button");
 const results = document.getElementById("results");
+const showUserScore = document.getElementById("playerScore");
+const showCompScore = document.getElementById("computerScore");
+const showRound = document.getElementById("round");
+
+let computerChoice;
 let playerSelection;
 let playerScore = 0;
 let computerScore = 0;
+let round = 0;
+let clickCount = 0
 
 
 
@@ -20,10 +27,13 @@ function getComputerChoice() {
 
 choice.forEach(choice => choice.addEventListener("click", (e) => {
     playerSelection = e.target.id;
-    console.log("You choose " + playerSelection);
     computerChoice = getComputerChoice();
-    console.log(computerChoice);
     playRound();
+    round++;
+
+    showRound.textContent = round;
+    showCompScore.textContent = computerScore;
+    showUserScore.textContent = playerScore;
 }));
 
 function playRound () {
@@ -48,9 +58,7 @@ function playRound () {
          return playerScore++;
      } else {
          results.textContent ="It's a draw";
-     }
-  }
+     };
 
+};
 
-
-    
