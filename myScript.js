@@ -4,14 +4,17 @@ const showUserScore = document.getElementById("playerScore");
 const showCompScore = document.getElementById("computerScore");
 const showRound = document.getElementById("round");
 
-let computerChoice;
+let computerChoice = getComputerChoice();
 let playerSelection;
 let playerScore = 0;
 let computerScore = 0;
 let round = 0;
-let clickCount = 0
 
-
+function disableBtn() {
+    choice.forEach(elem => {
+        elem.disable = true;
+    })
+}
 
 function getComputerChoice() {
     let rndInt = Math.floor(Math.random() * choice.length);
@@ -34,31 +37,33 @@ choice.forEach(choice => choice.addEventListener("click", (e) => {
     showRound.textContent = round;
     showCompScore.textContent = computerScore;
     showUserScore.textContent = playerScore;
+
 }));
 
 function playRound () {
 
-    if (playerSelection === "rock" && computerChoice === "paper") {
-         results.textContent ="You lose. Paper beats Rock";
-         return computerScore++;
-     } else if (playerSelection === "rock" && computerChoice === "scissors") {
-         results.textContent ="You win! Rock beats Scissors";
-         return playerScore++;
-     } else if (playerSelection === "paper" && computerChoice === "rock") {
-         results.textContent ="You win! Paper beats Rock";
-         return playerScore++;
-     } else if (playerSelection === "paper" && computerChoice === "scissors") {
-         results.textContent ="You lose! Scissors beats Paper";
-         return computerScore++;   
-     } else if (playerSelection === "scissors" && computerChoice === "rock") {
-         results.textContent ="You lose! Rock beats Scissors";
-         return computerScore++;
-     } else if (playerSelection === "scissors" && computerChoice === "paper") {
-         results.textContent ="You win! Scissors beats Paper";
-         return playerScore++;
-     } else {
-         results.textContent ="It's a draw";
-     };
+    if ((playerSelection === "rock" && computerChoice === "paper") || 
+    (playerSelection === "paper" && computerChoice === "scissors") || 
+    (playerSelection === "scissors" && computerChoice === "rock")) {
+         results.textContent ="You lose. "+ computerChoice + " beats " + playerSelection;
+         computerScore++;
 
+        if (computerScore === 5) {
+            results += "<br><br>Computer won";
+            disableBtn();
+        }
+
+     } else if (playerSelection === computerChoice) {
+         results.textContent ="It's a draw";
+     } else {
+        results.textContent ="You win. "+ playerSelection + " beats " + computerChoice;
+        playerScore++;
+
+       if (playerScore === 5) {
+        results += "<br><br>You won"
+           disableBtn();
+       }
+     };
+     return
 };
 
